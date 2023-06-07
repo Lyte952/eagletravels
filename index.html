@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <title>Eagle Travels</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+
+        class Top extends React.Component{
+            constructor(props){
+                super(props);
+                this.state = {
+                    email: "",
+                    formID: "G255634",
+                    name: ""
+                }
+            }
+
+            handleClick = () => {
+                    const popup = document.querySelector('.popup');
+                    const background = document.querySelector('.background');
+
+                    popup.classList.add('show');
+                    background.style.display = 'block';
+                };
+
+            closePopup = () => {
+                const popup = document.querySelector('.popup');
+                const background = document.querySelector('.background');
+                popup.classList.remove('show');
+                background.style.display = 'none';
+                };
+
+            verify = () => {
+                 
+            };
+
+            render(){
+                return(
+                    <div>
+                        <nav>
+                            <div id="logo_and_name"><img src="eagle.svg" alt="brand_logo"/><h1>Eagle Travels</h1><button onClick={this.handleClick} id="button1">Verify a form</button></div>
+                            <div className="background"></div>
+                            <div className="popup">
+                                <button id="close" onClick={this.closePopup}><img src="close.svg" alt="close"/></button>
+                                <input id="name" type="text" placeholder="Name on the form" required/>
+                                <input type="text" placeholder="Email on the form" />
+                                <input type="password" placeholder="Form ID" required/>
+                                <button id="button1" onClick={this.verify}>Verify</button>
+                                <h5>This process is required by every national embassy for form validation. <br/> Note: Forms with a date above Ninety(90) days is invalid.</h5>
+                            </div>
+                        </nav>    
+                    </div>
+                )
+            }
+
+        }
+
+        class Main extends React.Component{
+
+            constructor(props){
+                    super (props);
+                    this.state = {
+                        input1: "",
+                        input2: "",
+                        message: ""
+                    };
+                }
+
+            handleChange = (event) => {
+                if (event.target.id=="input1"){
+                this.setState({
+                    input1: event.target.value
+                });}else if(event.target.id=="input2") {
+                    this.setState({
+                        input2: event.target.value
+                    });} else if(event.target.id=="Textarea") {
+                        this.setState({
+                            message: event.target.value
+                        });
+                    }
+            };
+
+            render(){
+                return(
+                    <div id="main">
+                        <p>
+                        <strong>Welcome to Eagle Travels!</strong>
+                        </p>
+
+                        <h2 id="image_text">We Take You Everywhere...</h2>
+
+                        <p>
+                        Embark on a journey of discovery and adventure with our premier travel agency. We are dedicated to curating unforgettable experiences and turning your travel dreams into reality. Whether you seek exotic destinations, thrilling escapades, or serene getaways, our team of passionate experts is here to craft your perfect itinerary.
+                        </p>
+
+                        <h1 id="h12">Our direct procedure in getting you to fly</h1>
+
+                        <div id="svgs">
+                        
+                        <span id="sph4">
+                            <img src="form.svg" alt="Form" />
+                            <h5>1. Fill out the form</h5>
+                        </span>
+
+                        <img id="next" src="next.svg" alt="Next" />
+
+                        <span id="sph4">
+                            <img src="interview.svg" alt="Interview" />
+                            <h5>2. Get an interview</h5>   
+                        </span>
+
+                        <img id="next" src="next.svg" alt="Next" />
+
+                        <span id="sph4">
+                            <img src="visa.svg" alt="Visa" />
+                            <h5>3. We get you the Visa</h5>   
+                        </span>
+
+                        <img id="next" src="next.svg" alt="Next" />
+                        
+                        <span id="sph4">
+                            <img src="ticket.svg" alt="Ticket" /> 
+                            <h5>4. Buy your ticket</h5>   
+                        </span>
+
+                        <img id="next" src="next.svg" alt="Next" />
+
+                        <span id="sph4">
+                            <img src="plane.svg" alt="Plane" />
+                            <h5>5. Fly to your destination</h5>   
+                        </span>
+
+                        </div>
+
+                        <p>
+                        Discover the world's wonders as we take you to breathtaking landscapes, vibrant cultures, and hidden gems off the beaten path. From pristine beaches to towering mountains, from bustling cities to remote wilderness, we have a wide array of destinations to suit every traveler's taste.
+                        </p>
+
+                        <p>
+                        At Eagle Travels, we understand that travel is not just about reaching your destination; it's about the moments that take your breath away, the connections you make, and the memories that last a lifetime. Our commitment is to provide you with exceptional service, personalized attention, and a seamless travel experience from start to finish.
+                        </p>
+
+                        <p>
+                        Browse through our meticulously designed travel packages, tailored to cater to various interests and preferences. Whether you're seeking a romantic honeymoon, a family adventure, a solo expedition, or a corporate retreat, we have the expertise to fulfill your desires and surpass your expectations.
+                        </p>
+
+                        <p>
+                        Our team of experienced travel consultants is here to guide you every step of the way. We will assist you in selecting the perfect accommodations, arranging transportation, and recommending unique activities that will create moments of pure enchantment. Your satisfaction and safety are our top priorities, and we strive to ensure that every aspect of your journey is flawlessly executed.
+                        </p>
+
+                        <p>
+                        Let us be your trusted companion on your next travel escapade. Whether it's a weekend getaway or a grand expedition, we are committed to delivering exceptional travel experiences that will leave you with a lifetime of cherished memories.
+                        </p>
+
+                        <p>
+                        Begin your extraordinary adventure with Eagle Travels. Contact us today and let the journey begin!
+                        </p>
+
+                        <div>
+                            <strong id="appform">Get Started: <h5>Fill this application form and submit it.</h5></strong>
+                            <form action="">
+                            <h4 id="h4">Name</h4>
+                            <input id="input1" type="text" placeholder="Enter your name here" onChange={this.handleChange} required/>
+                            <br/>
+                            <h4 id="h4">Email address</h4>
+                            <input id="input2" type="text" placeholder="Enter your email here" onChange={this.handleChange} required />
+                            <br/>
+                            <h4 id="h4">Your reason for contact</h4>
+                            <textarea name="enterText" id="Textarea" cols="30" rows="10" placeholder="Enter your message here" onChange={this.handleChange} required></textarea>
+                            <a id="submit" href={`mailto:lytecodes@gmail.com?subject=From%20Eagle%20Travels%20website%20by%20${this.state.input1}&body=${this.state.message}`}>Submit</a>
+                            <h5>When submitted, you will receive a reply in 48hours, at most, and an official Eagle Travels form by email to fill and return.</h5>
+                            </form>
+                        </div>
+
+                    </div>
+                )
+            }
+        }
+
+        class Bottom extends React.Component{
+            render(){
+                return(
+                    <div id="bottom">
+                        <span>
+                            <button>Reach Us</button>
+                        </span>
+                        <span>
+                            <button>WhatsApp</button>    
+                        </span>
+                    </div>
+                )
+            }
+        }
+
+        class App extends React.Component{
+            render(){
+                return(
+                    <div>
+                        <Top/>
+                        <Main/>
+                        <Bottom/>   
+                    </div>
+                )
+            }
+        }
+
+        const container = document.querySelector('#app');
+        const root = ReactDOM.createRoot(container);
+        root.render(<App />);
+    </script>
+</body>
+</html>
