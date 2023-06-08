@@ -18,11 +18,30 @@
             constructor(props){
                 super(props);
                 this.state = {
-                    email: "",
+                    name: "Nana Boakye",
+                    email: "eagletravels@gmail.com",
                     formID: "G255634",
-                    name: ""
+                    name2: "",
+                    email2: "",
+                    formID2: ""
                 }
             }
+ 
+            handleChange = (event) => {
+                if (event.target.id=="name"){
+                this.setState({
+                    name2: event.target.value
+                    });}
+                else if(event.target.id=="email") {
+                    this.setState({
+                        email2: event.target.value
+                    });} 
+                else if(event.target.id=="formID") {
+                    this.setState({
+                        formID2: event.target.value
+                    });
+                    }
+            };
 
             handleClick = () => {
                     const popup = document.querySelector('.popup');
@@ -32,7 +51,7 @@
                     background.style.display = 'block';
                 };
 
-            closePopup = () => {
+            closePopup () {
                 const popup = document.querySelector('.popup');
                 const background = document.querySelector('.background');
                 popup.classList.remove('show');
@@ -40,29 +59,41 @@
                 };
 
             verify = () => {
-                 
+                const { name, email, formID, name2, email2, formID2 } = this.state;
+                const verified = document.querySelector('#verified');
+                const invalid = document.querySelector('#invalid');
+
+                if(name2==name && email2==email && formID2==formID){
+                    invalid.classList.remove('show');
+                    verified.classList.add('show');
+                }
+                else{
+                    verified.classList.remove('show');
+                    invalid.classList.add('show');
+                }
             };
 
             render(){
                 return(
                     <div>
                         <nav>
-                            <div id="logo_and_name"><img src="eagle.svg" alt="brand_logo"/><h1>Eagle Travels</h1><button onClick={this.handleClick} id="button1">Verify a form</button></div>
+                            <div id="logo_and_name"><img src="eagle.svg" alt="brand_logo"/><h1 id="hmain">Eagle Travels</h1><button onClick={this.handleClick} id="button1">Verify a form</button></div>
                             <div className="background"></div>
                             <div className="popup">
                                 <button id="close" onClick={this.closePopup}><img src="close.svg" alt="close"/></button>
-                                <input id="name" type="text" placeholder="Name on the form" required/>
-                                <input type="text" placeholder="Email on the form" />
-                                <input type="password" placeholder="Form ID" required/>
+                                <input onChange={this.handleChange} id="name" type="text" placeholder="Name on the form" required/>
+                                <input onChange={this.handleChange} id="email" type="email" placeholder="Email on the form" />
+                                <input onChange={this.handleChange} id="formID" type="password" placeholder="Form ID" required/>
+                                <button id="verified">This form is valid<img src="verify.svg" alt="Verified"/></button>
+                                <h5 id="invalid">This form is invalid. <br/> Please check the form again, you might have entered the wrong credentials. <br/> And let uppercase be uppercase and vice versa.</h5>
                                 <button id="button1" onClick={this.verify}>Verify</button>
-                                <h5>This process is required by every national embassy for form validation. <br/> Note: Forms with a date above Ninety(90) days is invalid.</h5>
+                                <h5>This process is required for form validation in cases where needed. <br/> Note: Forms with a date above Ninety(90) days is invalid.</h5>
                             </div>
                         </nav>    
                     </div>
-                )
+                    )
+                }
             }
-
-        }
 
         class Main extends React.Component{
 
@@ -106,38 +137,38 @@
 
                         <div id="svgs">
                         
-                        <span id="sph4">
-                            <img src="form.svg" alt="Form" />
-                            <h5>1. Fill out the form</h5>
-                        </span>
+                            <span id="sph4">
+                                <img src="form.svg" alt="Form" />
+                                <h5>1. Fill out the form</h5>
+                            </span>
 
-                        <img id="next" src="next.svg" alt="Next" />
+                            <img id="next" src="next.svg" alt="Next" />
 
-                        <span id="sph4">
-                            <img src="interview.svg" alt="Interview" />
-                            <h5>2. Get an interview</h5>   
-                        </span>
+                            <span id="sph4">
+                                <img src="interview.svg" alt="Interview" />
+                                <h5>2. Get an interview</h5>   
+                            </span>
 
-                        <img id="next" src="next.svg" alt="Next" />
+                            <img id="next" src="next.svg" alt="Next" />
 
-                        <span id="sph4">
-                            <img src="visa.svg" alt="Visa" />
-                            <h5>3. We get you the Visa</h5>   
-                        </span>
+                            <span id="sph4">
+                                <img src="visa.svg" alt="Visa" />
+                                <h5>3. We get you the Visa</h5>   
+                            </span>
 
-                        <img id="next" src="next.svg" alt="Next" />
-                        
-                        <span id="sph4">
-                            <img src="ticket.svg" alt="Ticket" /> 
-                            <h5>4. Buy your ticket</h5>   
-                        </span>
+                            <img id="next" src="next.svg" alt="Next" />
+                            
+                            <span id="sph4">
+                                <img src="ticket.svg" alt="Ticket" /> 
+                                <h5>4. Buy your ticket</h5>   
+                            </span>
 
-                        <img id="next" src="next.svg" alt="Next" />
+                            <img id="next" src="next.svg" alt="Next" />
 
-                        <span id="sph4">
-                            <img src="plane.svg" alt="Plane" />
-                            <h5>5. Fly to your destination</h5>   
-                        </span>
+                            <span id="sph4">
+                                <img src="plane.svg" alt="Plane" />
+                                <h5>5. Fly to your destination</h5>   
+                            </span>
 
                         </div>
 
@@ -176,8 +207,8 @@
                             <br/>
                             <h4 id="h4">Your reason for contact</h4>
                             <textarea name="enterText" id="Textarea" cols="30" rows="10" placeholder="Enter your message here" onChange={this.handleChange} required></textarea>
-                            <a id="submit" href={`mailto:lytecodes@gmail.com?subject=From%20Eagle%20Travels%20website%20by%20${this.state.input1}&body=${this.state.message}`}>Submit</a>
                             <h5>When submitted, you will receive a reply in 48hours, at most, and an official Eagle Travels form by email to fill and return.</h5>
+                            <a id="submit" href={`mailto:lytecodes@gmail.com?subject=From%20Eagle%20Travels%20website%20by%20${this.state.input1}&body=${this.state.message}`}>Submit</a>
                             </form>
                         </div>
 

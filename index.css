@@ -18,6 +18,10 @@ nav {
     left: 0;
 }
 
+#hmain {
+    font-weight: 400;
+}
+
 #logo_and_name {
     margin-left: 5%;
     display: flex;
@@ -204,7 +208,7 @@ span h4 {
 
 .popup {
     position: fixed;
-    margin-top: 180px;
+    margin-top: 220px;
     left: 50%;
     width: 60%;
     transform: translate(-50%, -50%);
@@ -227,6 +231,28 @@ span h4 {
     display: block;
     backdrop-filter: blur(10px);
 }
+
+#verified {
+    display: none;
+    color: #00a51b;
+    background-color: white;
+    align-items: center;
+}
+
+#verified.show {
+    display: flex;
+}
+
+#invalid {
+    display: none;
+    color: red;
+    text-align: center;
+}
+
+#invalid.show{
+    display: block;
+}
+
 
 #close {
     display: flex;
@@ -270,13 +296,19 @@ span h4 {
         margin-right: 5px;
     }
 
+
     .popup {
         width: 87%;
     }
 
+    .background {
+        height: 4180px;
+    }
+
     #button1 {
         margin-left: 0;
-        margin-top: 50px;
+        margin-right: 10px;
+        margin-top: 38px;
     }
 
     input, textarea {
@@ -290,5 +322,7 @@ span h4 {
     #image_text {
         width: 39%;
         font-size: 25px;
+        background-size: contain;
+        padding: 126px;
     }
 }
