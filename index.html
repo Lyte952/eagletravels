@@ -208,8 +208,8 @@
                             <h4 id="h4">Your reason for contact</h4>
                             <textarea name="enterText" id="Textarea" cols="30" rows="10" placeholder="Enter your message here" onChange={this.handleChange} required></textarea>
                             <h5>When submitted, you will receive a reply in 48hours, at most, and an official Eagle Travels form by email to fill and return.</h5>
-                            <a id="submit" href={`mailto:lytecodes@gmail.com?subject=From%20Eagle%20Travels%20website%20by%20${this.state.input1}&body=${this.state.message}`}>Submit</a>
                             </form>
+                            <a id="submit" href={`mailto:lytecodes@gmail.com?subject=From%20Eagle%20Travels%20website%20by%20${this.state.input1}&body=${this.state.message}`}>Submit</a>
                         </div>
 
                     </div>
@@ -222,10 +222,8 @@
                 return(
                     <div id="bottom">
                         <span>
-                            <button>Reach Us</button>
-                        </span>
-                        <span>
-                            <button>WhatsApp</button>    
+                            <img id="bottomimg" src="eagle.svg" alt="logo" />
+                            <h1 id="bottomh1">Eagle Travels®</h1>
                         </span>
                     </div>
                 )

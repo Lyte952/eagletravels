@@ -114,6 +114,7 @@ h5 {
     transform: scale(1);
     transition: 0.5s;
     z-index: -9999;
+    margin-left: 45%;
 }
 
 #appform {
@@ -128,15 +129,31 @@ h5 {
     color: #7d7d7d;
 }
 
-#bottom {
-    background-color: #040421;
+#bottom span {
+    background-color: #9a9aff;
     margin-top: 40px;
     box-shadow: 3px -3px 3px rgba(2, 5, 82, 0.5);
     border-radius: 10px;
     width: 100%;
+    height: 150px;
     display: flex;
-    justify-content: space-evenly;
-    height: 100px;
+    flex-direction: column;
+    text-align: center;
+    color: #010057;
+    align-items: center;
+    justify-content: center;
+}
+
+#bottomimg {
+    margin-top: 20px;
+    height: 60px;
+    width: 60px;
+    align-items: center;
+}
+
+#bottomh1 {
+    font-size: 20px;
+    font-weight: 400;
 }
 
 button {
@@ -324,5 +341,9 @@ span h4 {
         font-size: 25px;
         background-size: contain;
         padding: 100px;
+    }
+
+    #submit {
+        margin-left: 37%;
     }
 }
